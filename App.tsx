@@ -180,58 +180,59 @@ const App: React.FC = () => {
 
   const Navbar = () => (
     <nav className="fixed top-0 left-0 right-0 z-50">
-      <div className="glass py-4 flex items-center justify-between shadow-2xl w-full px-0 pr-6">
-        <div className="flex items-center gap-8 pl-6">
-          <h1 className="text-2xl font-black tracking-tighter cursor-pointer flex items-center gap-2" onClick={() => setView('home')}>
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-purple-600 to-blue-500 shadow-lg shadow-purple-500/20" />
-            LUMINA<span className="text-purple-500">LUXE</span>
+      <div className="glass py-3 md:py-4 flex items-center justify-between shadow-2xl w-full px-3 md:px-6">
+        <div className="flex items-center gap-3 md:gap-8">
+          <h1 className="text-lg md:text-2xl font-black tracking-tighter cursor-pointer flex items-center gap-2" onClick={() => setView('home')}>
+            <div className="w-6 h-6 md:w-8 md:h-8 rounded-lg bg-gradient-to-tr from-purple-600 to-blue-500 shadow-lg shadow-purple-500/20" />
+            <span className="hidden sm:inline">LUMINA<span className="text-purple-500">LUXE</span></span>
+            <span className="sm:hidden text-base">LUX</span>
           </h1>
           <div className="hidden lg:flex relative group">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
             <input 
               type="text" 
               placeholder="Search..." 
-              className="bg-white/5 border border-white/10 rounded-full pl-10 pr-4 py-2 text-sm w-[24rem] focus:outline-none focus:border-purple-500 transition"
+              className="bg-white/5 border border-white/10 rounded-full pl-10 pr-4 py-2 text-xs md:text-sm w-[16rem] lg:w-[24rem] focus:outline-none focus:border-purple-500 transition"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
         </div>
 
-        <div className="flex items-center gap-2 lg:gap-4">
-          <button onClick={() => setView('favorites')} className="p-2 relative hover:bg-white/5 rounded-full transition group">
-            <Heart className={`w-5 h-5 transition-all duration-300 ${favorites.length > 0 ? 'fill-red-500 text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]' : 'text-white/40 group-hover:text-white'}`} />
-            {favorites.length > 0 && <span className="absolute top-0 right-0 w-4 h-4 bg-red-500 text-[8px] font-black flex items-center justify-center rounded-full ring-2 ring-black">{favorites.length}</span>}
+        <div className="flex items-center gap-1 md:gap-2 lg:gap-4">
+          <button onClick={() => setView('favorites')} className="p-1.5 md:p-2 relative hover:bg-white/5 rounded-full transition group">
+            <Heart className={`w-4 h-4 md:w-5 md:h-5 transition-all duration-300 ${favorites.length > 0 ? 'fill-red-500 text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]' : 'text-white/40 group-hover:text-white'}`} />
+            {favorites.length > 0 && <span className="absolute top-0 right-0 w-3 h-3 md:w-4 md:h-4 bg-red-500 text-[6px] md:text-[8px] font-black flex items-center justify-center rounded-full ring-2 ring-black">{favorites.length}</span>}
           </button>
           
-          <button onClick={() => setView('cart')} className="p-2 relative hover:bg-white/5 rounded-full transition group">
-            <ShoppingBag className="w-5 h-5 text-white/40 group-hover:text-white" />
-            {cart.length > 0 && <span className="absolute top-0 right-0 w-4 h-4 bg-purple-600 text-[8px] font-black flex items-center justify-center rounded-full ring-2 ring-black">{cart.reduce((a, b) => a + b.quantity, 0)}</span>}
+          <button onClick={() => setView('cart')} className="p-1.5 md:p-2 relative hover:bg-white/5 rounded-full transition group">
+            <ShoppingBag className="w-4 h-4 md:w-5 md:h-5 text-white/40 group-hover:text-white" />
+            {cart.length > 0 && <span className="absolute top-0 right-0 w-3 h-3 md:w-4 md:h-4 bg-purple-600 text-[6px] md:text-[8px] font-black flex items-center justify-center rounded-full ring-2 ring-black">{cart.reduce((a, b) => a + b.quantity, 0)}</span>}
           </button>
 
           {user ? (
-            <div className="flex items-center gap-2">
-              <button onClick={() => { setView('profile'); setProfileTab('info'); }} className="flex items-center gap-3 glass px-4 py-2 rounded-full hover:bg-white/10 transition">
-                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-[10px] font-bold">{user.name[0]}</div>
-                <span className="hidden sm:inline text-xs font-bold tracking-tight">{user.name.split(' ')[0]}</span>
+            <div className="flex items-center gap-1 md:gap-2">
+              <button onClick={() => { setView('profile'); setProfileTab('info'); }} className="flex items-center gap-2 md:gap-3 glass px-2 md:px-4 py-1.5 md:py-2 rounded-full hover:bg-white/10 transition">
+                <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-[8px] md:text-[10px] font-bold">{user.name[0]}</div>
+                <span className="hidden sm:inline text-[10px] md:text-xs font-bold tracking-tight">{user.name.split(' ')[0]}</span>
               </button>
-              <button onClick={() => { setUser(null); setView('home'); }} className="p-2 hover:bg-red-500/10 text-white/20 hover:text-red-500 rounded-full transition" title="Logout">
+              <button onClick={() => { setUser(null); setView('home'); }} className="p-1.5 md:p-2 hover:bg-red-500/10 text-white/20 hover:text-red-500 rounded-full transition" title="Logout">
                 <LogOut className="w-4 h-4" />
               </button>
             </div>
           ) : (
-            <button onClick={() => setView('login')} className="bg-white text-black px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white/90 transition shadow-xl">Sign In</button>
+            <button onClick={() => setView('login')} className="bg-white text-black px-3 md:px-6 py-1.5 md:py-2 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest hover:bg-white/90 transition shadow-xl">Sign In</button>
           )}
         </div>
       </div>
       
       {view === 'shop' && (
-      <div className="glass border-t border-white/5 px-0 py-2 overflow-x-auto flex gap-6 md:gap-10 justify-center no-scrollbar backdrop-blur-3xl w-full">
+      <div className="glass border-t border-white/5 px-0 py-1 md:py-2 overflow-x-auto flex gap-3 md:gap-6 lg:gap-10 justify-center no-scrollbar backdrop-blur-3xl w-full">
           {CATEGORIES.map(cat => (
             <button 
               key={cat}
               onClick={() => { setSelectedCategory(cat); setView('shop'); }}
-              className={`text-[10px] uppercase font-black tracking-widest transition-all whitespace-nowrap px-2 py-1 relative ${selectedCategory === cat ? 'text-purple-400' : 'text-white/40 hover:text-white'}`}
+              className={`text-[8px] md:text-[10px] uppercase font-black tracking-wider md:tracking-widest transition-all whitespace-nowrap px-1.5 md:px-2 py-1 relative ${selectedCategory === cat ? 'text-purple-400' : 'text-white/40 hover:text-white'}`}
             >
               {cat}
               {selectedCategory === cat && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-600 rounded-full" />}
@@ -411,24 +412,24 @@ const App: React.FC = () => {
           </div>
           <button onClick={() => setView('shop')} className="text-[10px] font-black uppercase tracking-widest text-white/30 hover:text-white transition flex items-center gap-2">View All <ChevronRight className="w-4 h-4" /></button>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-6">
           {products.slice(4, 9).map(p => <ProductCard key={p.id} product={p} />)}
         </div>
       </section>
 
-      <section className="px-6 py-12 max-w-[1440px] mx-auto bg-white/2 rounded-[4rem] border border-white/5 my-12 px-10 md:px-14">
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="bg-blue-600/10 text-blue-400 p-4 rounded-[1.5rem] mb-6 ring-1 ring-blue-500/20">
-            <TrendingUp className="w-8 h-8" />
+      <section className="px-4 md:px-6 lg:px-10 py-8 md:py-12 max-w-[1440px] mx-auto bg-white/2 rounded-2xl md:rounded-[4rem] border border-white/5 my-8 md:my-12">
+        <div className="flex flex-col items-center text-center mb-8 md:mb-16">
+          <div className="bg-blue-600/10 text-blue-400 p-3 md:p-4 rounded-lg md:rounded-[1.5rem] mb-4 md:mb-6 ring-1 ring-blue-500/20">
+            <TrendingUp className="w-6 md:w-8 h-6 md:h-8" />
           </div>
-          <h3 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-4">Latest Registry</h3>
+          <h3 className="text-2xl md:text-4xl lg:text-5xl font-black tracking-tighter uppercase mb-3 md:mb-4">Latest Registry</h3>
           <p className="text-white/30 max-w-xl text-lg leading-relaxed">Our database expands with fresh technological marvels daily. Synchronize your environment now.</p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-8">
           {products.slice(0, 5).map(p => <ProductCard key={p.id} product={p} />)}
         </div>
-        <div className="mt-16 text-center">
-          <button onClick={() => setView('shop')} className="glass px-14 py-6 rounded-full font-black uppercase text-[10px] tracking-widest hover:bg-white/5 transition-all ring-1 ring-white/10">Full Repository</button>
+        <div className="mt-8 md:mt-16 text-center">
+          <button onClick={() => setView('shop')} className="glass px-6 md:px-14 py-3 md:py-6 rounded-full font-black uppercase text-[9px] md:text-[10px] tracking-widest hover:bg-white/5 transition-all ring-1 ring-white/10">Full Repository</button>
         </div>
       </section>
     </div>
@@ -493,12 +494,12 @@ const App: React.FC = () => {
   );
 
   const ProfileView = () => (
-    <div className="pt-32 px-6 max-w-[1440px] mx-auto min-h-screen pb-20">
-      <div className="flex flex-col lg:flex-row gap-12">
+    <div className="pt-20 md:pt-32 px-4 md:px-6 max-w-[1440px] mx-auto min-h-screen pb-20">
+      <div className="flex flex-col lg:flex-row gap-6 md:gap-12">
         <div className="w-full lg:w-80 space-y-2">
-          <div className="glass p-8 rounded-[3rem] text-center relative overflow-hidden group mb-8">
+          <div className="glass p-6 md:p-8 rounded-2xl md:rounded-[3rem] text-center relative overflow-hidden group mb-6 md:mb-8">
              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition duration-1000" />
-             <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-purple-600 to-blue-500 mx-auto mb-4 flex items-center justify-center text-3xl font-black shadow-2xl relative z-10">
+             <div className="w-20 md:w-24 h-20 md:h-24 rounded-full bg-gradient-to-tr from-purple-600 to-blue-500 mx-auto mb-3 md:mb-4 flex items-center justify-center text-2xl md:text-3xl font-black shadow-2xl relative z-10">
                {user?.name[0]}
              </div>
              <h3 className="font-black text-xl mb-1 relative z-10">{user?.name}</h3>
@@ -513,25 +514,25 @@ const App: React.FC = () => {
             <button 
               key={tab.id}
               onClick={() => setProfileTab(tab.id as any)}
-              className={`w-full flex items-center gap-4 px-6 py-4 rounded-[1.8rem] transition-all relative ${profileTab === tab.id ? 'bg-purple-600 shadow-xl shadow-purple-900/30' : 'glass hover:bg-white/5'}`}
+              className={`w-full flex items-center gap-2 md:gap-4 px-3 md:px-6 py-3 md:py-4 rounded-lg md:rounded-[1.8rem] transition-all relative text-[11px] md:text-xs ${profileTab === tab.id ? 'bg-purple-600 shadow-xl shadow-purple-900/30' : 'glass hover:bg-white/5'}`}
             >
-              <tab.icon className="w-4 h-4" />
-              <span className="text-xs font-black uppercase tracking-widest">{tab.label}</span>
-              {profileTab === tab.id && <ChevronRight className="w-4 h-4 ml-auto" />}
+              <tab.icon className="w-4 h-4 flex-shrink-0" />
+              <span className="font-black uppercase tracking-tight md:tracking-widest hidden sm:inline">{tab.label}</span>
+              {profileTab === tab.id && <ChevronRight className="w-4 h-4 ml-auto flex-shrink-0" />}
             </button>
           ))}
           
-          <button onClick={() => { setUser(null); setView('home'); }} className="w-full flex items-center gap-4 px-6 py-4 rounded-[1.8rem] text-red-500 glass hover:bg-red-500/10 transition mt-10">
-            <LogOut className="w-4 h-4" />
-            <span className="text-xs font-black uppercase tracking-widest">Terminate Session</span>
+          <button onClick={() => { setUser(null); setView('home'); }} className="w-full flex items-center gap-2 md:gap-4 px-3 md:px-6 py-3 md:py-4 rounded-lg md:rounded-[1.8rem] text-red-500 glass hover:bg-red-500/10 transition mt-6 md:mt-10 text-[11px] md:text-xs\">
+            <LogOut className="w-4 h-4 flex-shrink-0" />
+            <span className="font-black uppercase tracking-tight md:tracking-widest hidden sm:inline\">Terminate Session</span>
           </button>
         </div>
 
-        <div className="flex-grow glass p-10 md:p-14 rounded-[4rem] min-h-[500px] border border-white/5">
+        <div className="flex-grow glass p-6 md:p-10 lg:p-14 rounded-xl md:rounded-2xl lg:rounded-[4rem] min-h-[400px] md:min-h-[500px] border border-white/5">
           {profileTab === 'info' && (
-            <div className="space-y-12 animate-in slide-in-from-right duration-500">
+            <div className="space-y-6 md:space-y-12 animate-in slide-in-from-right duration-500">
                <div className="flex justify-between items-center">
-                 <h2 className="text-4xl font-black tracking-tighter uppercase">IDENTITY</h2>
+                 <h2 className="text-2xl md:text-4xl font-black tracking-tighter uppercase">IDENTITY</h2>
                  <button onClick={() => setIsEditingProfile(!isEditingProfile)} className="glass p-3 rounded-[1.2rem] hover:bg-white/5 transition">
                    {isEditingProfile ? <X className="w-5 h-5 text-red-400" /> : <Edit3 className="w-5 h-5 text-purple-400" />}
                  </button>
@@ -649,10 +650,10 @@ const App: React.FC = () => {
     const [selectedAddrId, setSelectedAddrId] = useState(addresses[0]?.id);
 
     return (
-      <div className="pt-32 px-6 max-w-[1440px] mx-auto min-h-screen pb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-          <div className="lg:col-span-2 space-y-12">
-            <h2 className="text-6xl font-black tracking-tighter uppercase">SECURE TRANSFER</h2>
+      <div className="pt-20 md:pt-32 px-4 md:px-6 max-w-[1440px] mx-auto min-h-screen pb-20 md:pb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-16">
+          <div className="lg:col-span-2 space-y-6 md:space-y-12">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter uppercase">SECURE TRANSFER</h2>
             
             <div className="flex gap-3">
               {[1, 2, 3].map(i => (
@@ -665,7 +666,7 @@ const App: React.FC = () => {
                 <div className="flex justify-between items-center">
                   <h3 className="text-2xl font-black tracking-tighter uppercase flex items-center gap-4"><MapPin className="text-purple-400" /> Transit Node</h3>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5">
                    {addresses.map(addr => (
                      <div 
                       key={addr.id}
@@ -702,7 +703,7 @@ const App: React.FC = () => {
                        <label className="text-[10px] font-black text-white/20 uppercase tracking-widest ml-4">Card Interface</label>
                        <input type="text" placeholder="0000 0000 0000 0000" className="w-full bg-white/5 border border-white/10 rounded-[1.5rem] p-5 text-sm font-mono tracking-[0.2em] focus:border-purple-500 transition focus:outline-none" />
                     </div>
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-2 gap-3 md:gap-5">
                        <div className="space-y-2">
                           <label className="text-[10px] font-black text-white/20 uppercase tracking-widest ml-4">Temporal Limit</label>
                           <input type="text" placeholder="MM/YY" className="w-full bg-white/5 border border-white/10 rounded-[1.5rem] p-5 text-sm font-bold focus:border-purple-500 transition focus:outline-none" />
@@ -749,13 +750,13 @@ const App: React.FC = () => {
   };
 
   const CartView = () => (
-    <div className="pt-32 px-6 max-w-[1440px] mx-auto min-h-screen pb-32">
-      <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase mb-20 text-center">SELECTION</h2>
+    <div className="pt-20 md:pt-32 px-4 md:px-6 max-w-[1440px] mx-auto min-h-screen pb-20 md:pb-32">
+      <h2 className="text-3xl md:text-6xl lg:text-8xl font-black tracking-tighter uppercase mb-12 md:mb-20 text-center">SELECTION</h2>
       {cart.length === 0 ? (
-        <div className="glass p-24 rounded-[4rem] text-center max-w-4xl mx-auto">
-          <ShoppingBag className="w-24 h-24 mx-auto text-white/5 mb-8" />
-          <h3 className="text-3xl font-black tracking-tighter mb-6 uppercase">Registry is vacant</h3>
-          <button onClick={() => setView('shop')} className="bg-white text-black px-12 py-5 rounded-full font-black uppercase text-xs tracking-widest hover:scale-110 transition shadow-2xl">Start Archive</button>
+        <div className="glass p-8 md:p-24 rounded-2xl md:rounded-[4rem] text-center max-w-4xl mx-auto">
+          <ShoppingBag className="w-16 md:w-24 h-16 md:h-24 mx-auto text-white/5 mb-6 md:mb-8" />
+          <h3 className="text-2xl md:text-3xl font-black tracking-tighter mb-4 md:mb-6 uppercase">Registry is vacant</h3>
+          <button onClick={() => setView('shop')} className="bg-white text-black px-6 md:px-12 py-3 md:py-5 rounded-full font-black uppercase text-[10px] md:text-xs tracking-widest hover:scale-110 transition shadow-2xl">Start Archive</button>
         </div>
       ) : (
         <div className="space-y-8">
@@ -781,7 +782,7 @@ const App: React.FC = () => {
               </div>
             </div>
           ))}
-          <div className="mt-24 pt-16 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-12 px-6">
+          <div className="mt-12 md:mt-24 pt-8 md:pt-16 border-t border-white/10 flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 md:gap-12 px-0 md:px-6">
             <div className="text-center md:text-left">
               <p className="text-[10px] font-black uppercase text-white/20 tracking-[0.4em] mb-2">Registry Valuation</p>
               <h3 className="text-7xl md:text-8xl font-black tracking-tighter text-white">${cartTotal}</h3>
@@ -863,35 +864,35 @@ const App: React.FC = () => {
         {view === 'checkout' && <CheckoutView />}
       </main>
 
-      <footer className="glass mt-24 py-20 px-10 border-t-0 border-white/5 relative overflow-hidden">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-4 gap-24 relative z-10">
-          <div className="lg:col-span-2">
-            <h2 className="text-5xl font-black tracking-tighter mb-8">LUMINA<span className="text-purple-500">LUXE</span></h2>
-            <p className="text-white/40 max-w-md mb-16 text-xl leading-relaxed font-medium">Redefining high-fidelity commerce. Every artifact curated is a testament to the future.</p>
-            <div className="flex gap-4 max-w-md">
-               <input placeholder="Establish Link" className="bg-white/5 border border-white/10 rounded-[1.8rem] px-8 py-5 flex-grow focus:outline-none focus:border-purple-500 transition font-bold" />
-               <button className="bg-white text-black px-10 rounded-[1.8rem] font-black uppercase text-[10px] tracking-widest transition hover:scale-105 active:scale-95 shadow-xl">Join</button>
+      <footer className="glass mt-12 md:mt-24 py-8 md:py-16 lg:py-20 px-4 md:px-8 lg:px-10 border-t-0 border-white/5 relative overflow-hidden">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-24 relative z-10">
+          <div className="sm:col-span-2 lg:col-span-2">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter mb-4 md:mb-8">LUMINA<span className="text-purple-500">LUXE</span></h2>
+            <p className="text-white/40 mb-6 md:mb-16 text-sm md:text-base lg:text-xl leading-relaxed font-medium">Redefining high-fidelity commerce. Every artifact curated is a testament to the future.</p>
+            <div className="flex gap-2 md:gap-4 w-full md:max-w-md">
+               <input placeholder="Establish Link" className="bg-white/5 border border-white/10 rounded-full md:rounded-[1.8rem] px-4 md:px-8 py-2 md:py-5 flex-grow text-sm md:text-base focus:outline-none focus:border-purple-500 transition font-bold" />
+               <button className="bg-white text-black px-4 md:px-10 rounded-full md:rounded-[1.8rem] font-black uppercase text-[9px] md:text-[10px] tracking-widest transition hover:scale-105 active:scale-95 shadow-xl whitespace-nowrap">Join</button>
             </div>
           </div>
           <div>
-            <h4 className="font-black text-[11px] uppercase tracking-[0.5em] text-white/20 mb-10">Nexus</h4>
-            <ul className="space-y-5 text-sm text-white/40 font-black uppercase tracking-widest">
+            <h4 className="font-black text-[9px] md:text-[11px] uppercase tracking-[0.3em] md:tracking-[0.5em] text-white/20 mb-4 md:mb-10">Nexus</h4>
+            <ul className="space-y-3 md:space-y-5 text-xs md:text-sm text-white/40 font-black uppercase tracking-wider md:tracking-widest">
               <li onClick={() => setView('shop')} className="hover:text-purple-400 cursor-pointer transition">Marketplace</li>
               <li onClick={() => setView('favorites')} className="hover:text-purple-400 cursor-pointer transition">Vault</li>
               <li className="hover:text-purple-400 cursor-pointer transition">Elite Drops</li>
             </ul>
           </div>
           <div>
-            <h4 className="font-black text-[11px] uppercase tracking-[0.5em] text-white/20 mb-10">Legal</h4>
-            <ul className="space-y-5 text-sm text-white/40 font-black uppercase tracking-widest">
+            <h4 className="font-black text-[9px] md:text-[11px] uppercase tracking-[0.3em] md:tracking-[0.5em] text-white/20 mb-4 md:mb-10">Legal</h4>
+            <ul className="space-y-3 md:space-y-5 text-xs md:text-sm text-white/40 font-black uppercase tracking-wider md:tracking-widest">
               <li onClick={() => setView('manifesto')} className="hover:text-purple-400 cursor-pointer transition">Protocol</li>
               <li className="hover:text-purple-400 cursor-pointer transition">Identity Policy</li>
             </ul>
           </div>
         </div>
-        <div className="max-w-[1440px] mx-auto mt-20 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between text-[10px] text-white/10 font-black tracking-[0.4em] uppercase">
+        <div className="max-w-[1440px] mx-auto mt-8 md:mt-20 pt-6 md:pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between text-[8px] md:text-[10px] text-white/10 font-black tracking-[0.2em] md:tracking-[0.4em] uppercase">
           <p>© 2025 LUMINA LUXE ARTIFACTS. SECURE ACCESS DECRYPTED.</p>
-          <div className="flex gap-12 mt-8 md:mt-0">
+          <div className="flex gap-6 md:gap-12 mt-4 md:mt-0">
              <span className="hover:text-white cursor-pointer transition">NETWORK</span>
              <span className="hover:text-white cursor-pointer transition">SATELLITE</span>
           </div>
