@@ -761,11 +761,11 @@ const App: React.FC = () => {
       ) : (
         <div className="space-y-8">
           {cart.map(item => (
-            <div key={item.id} className="glass p-8 rounded-[4rem] flex items-center justify-between group transition-all duration-500 hover:bg-white/5 border border-white/5">
-              <div className="flex items-center gap-10">
-                <img src={item.image} className="w-32 h-32 rounded-[2.5rem] object-cover border-2 border-white/5 group-hover:scale-105 transition duration-1000" />
-                <div>
-                  <h4 className="font-black text-3xl mb-1 uppercase tracking-tight">{item.name}</h4>
+            <div key={item.id} className="glass p-4 md:p-8 rounded-2xl md:rounded-[4rem] flex flex-col md:flex-row md:items-center md:justify-between group transition-all duration-500 hover:bg-white/5 border border-white/5 gap-4 md:gap-0">
+              <div className="flex items-center gap-4 md:gap-10">
+                <img src={item.image} className="w-20 h-20 md:w-32 md:h-32 rounded-[2.5rem] object-cover border-2 border-white/5 group-hover:scale-105 transition duration-1000" />
+                <div className="min-w-0">
+                  <h4 className="font-black text-lg md:text-3xl mb-1 uppercase tracking-tight line-clamp-2 md:line-clamp-none">{item.name}</h4>
                   <p className="text-[10px] text-purple-400 font-black uppercase tracking-[0.3em] mb-6">{item.category}</p>
                   <div className="flex items-center glass rounded-2xl overflow-hidden w-fit border border-white/5 p-1.5">
                      <button onClick={() => updateCartQuantity(item.id, -1)} className="p-3 hover:bg-white/10 text-white/40 hover:text-white transition"><Minus className="w-5 h-5"/></button>
@@ -774,8 +774,8 @@ const App: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="text-right flex flex-col items-end gap-8 pr-6">
-                <span className="text-5xl font-black tracking-tighter text-white">${item.price * item.quantity}</span>
+              <div className="text-right flex flex-col items-end gap-4 md:gap-8 md:pr-6 self-start md:self-auto">
+                <span className="text-2xl md:text-5xl font-black tracking-tighter text-white">${item.price * item.quantity}</span>
                 <button onClick={() => removeFromCart(item.id)} className="p-4 text-white/10 hover:text-red-500 glass rounded-[1.8rem] transition shadow-inner">
                   <Trash2 className="w-6 h-6" />
                 </button>
@@ -785,7 +785,7 @@ const App: React.FC = () => {
           <div className="mt-12 md:mt-24 pt-8 md:pt-16 border-t border-white/10 flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 md:gap-12 px-0 md:px-6">
             <div className="text-center md:text-left">
               <p className="text-[10px] font-black uppercase text-white/20 tracking-[0.4em] mb-2">Registry Valuation</p>
-              <h3 className="text-7xl md:text-8xl font-black tracking-tighter text-white">${cartTotal}</h3>
+              <h3 className="text-4xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white">${cartTotal}</h3>
             </div>
             <button 
               onClick={() => {
@@ -813,7 +813,7 @@ const App: React.FC = () => {
           <section className="pt-52 px-6 pb-32 max-w-[1440px] mx-auto">
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-20 gap-10">
               <div>
-                <h2 className="text-6xl font-black tracking-tighter uppercase mb-3">{selectedCategory}</h2>
+                <h2 className="text-2xl md:text-4xl lg:text-6xl font-black tracking-tighter uppercase mb-3">{selectedCategory}</h2>
                 <div className="flex items-center gap-4">
                    <div className="h-1.5 w-20 bg-purple-600 rounded-full" />
                    <p className="text-[10px] text-white/30 uppercase tracking-[0.4em] font-black">{filteredProducts.length} Registry Entries</p>
@@ -840,7 +840,7 @@ const App: React.FC = () => {
           <section className="pt-32 px-6 pb-40 max-w-[1440px] mx-auto min-h-screen">
             <div className="flex justify-between items-end mb-20 px-6">
                <div>
-                  <h2 className="text-6xl font-black tracking-tighter uppercase mb-4">THE VAULT</h2>
+                  <h2 className="text-2xl md:text-4xl lg:text-6xl font-black tracking-tighter uppercase mb-4">THE VAULT</h2>
                   <div className="h-1.5 w-40 bg-red-500 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.5)]" />
                </div>
                <p className="text-[10px] text-white/30 uppercase tracking-[0.4em] font-black">{favorites.length} Artifacts Sealed</p>
