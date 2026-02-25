@@ -1,37 +1,64 @@
-Aura & Matter modern bir web uygulamasıdır ve Lumina Luxe reposu içinde yer alan frontend kodu ile geliştirilmiştir.
+# ✨ Aura & Matter
 
-Bu proje:
+![Vite](https://img.shields.io/badge/Vite-Frontend-purple)
+![React](https://img.shields.io/badge/React-18-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 
--Modern web teknolojileri kullanır (React / TypeScript / Vite vb.)
--Statik web sitesi / uygulama yapısı sunar
+Modern ve estetik bir web uygulaması.  
+**Lumina Luxe** reposu içinde geliştirilen bu proje, modern frontend teknolojileri kullanılarak oluşturulmuştur.
 
-#Özellikler
+🔗 **Live Demo:** https://aura-matter.vercel.app/  
+📦 **Repository:** https://github.com/sema27/lumina-luxe  
 
-Bu proje ile:
-✔️ Modern UI/UX tasarımı
-✔️ Hızlı frontend geliştirme
-✔️ React + TypeScript + Vite entegrasyonu
-✔️ Vercel’a kolay deploy
-✔️ Yerel geliştirme desteği
-gibi faydalar sağlanır.
+---
 
-#Gereksinimler
+## 🚀 Proje Hakkında
 
--Node.js (≥16)
-n-pm veya yarn
+Aura & Matter:
 
-#Kurulum
+- ⚡ Modern web teknolojileri kullanır (React + TypeScript + Vite)
+- 🎨 Modern UI/UX tasarım prensiplerine sahiptir
+- 📱 Responsive tasarım içerir
+- 🧩 Component tabanlı mimari kullanır
 
-- Depoyu klonla
+---
+
+## 🛠️ Kullanılan Teknolojiler
+
+- React
+- TypeScript
+- Vite
+- CSS / Tailwind (kullanıyorsan bırak, kullanmıyorsan silebilirsin)
+
+---
+
+## 🧑‍💻 Kurulum
+
+Projeyi kendi bilgisayarında çalıştırmak için:
+
+# Repoyu klonla
+```bash
 git clone https://github.com/sema27/lumina-luxe.git
+```
 
-- Proje dizinine gir
+# Klasöre gir
+```bash
 cd lumina-luxe
+```
 
-- Bağımlılıkları yükle
+# Bağımlılıkları yükle
+```bash
 npm install
+```
 
-- Geliştirme sunucusunu başlat
+# Geliştirme sunucusunu başlat
+```bash
 npm run dev
+```
 
-Tarayıcınızda http://localhost:3000 veya belirtilen portta uygulama çalışacaktır.
+# Tarayıcıda
+```bash
+http://localhost:3000
+```
+ile siteyi görebilirsin.
