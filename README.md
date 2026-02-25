@@ -1,20 +1,37 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+Aura & Matter modern bir web uygulamasıdır ve Lumina Luxe reposu içinde yer alan frontend kodu ile geliştirilmiştir.
 
-# Run and deploy your AI Studio app
+Bu proje:
 
-This contains everything you need to run your app locally.
+-Modern web teknolojileri kullanır (React / TypeScript / Vite vb.)
+-Statik web sitesi / uygulama yapısı sunar
 
-View your app in AI Studio: https://ai.studio/apps/drive/18fTdawQbo4IEABxjC6M8WUcHzfEEhRx8
+#Özellikler
 
-## Run Locally
+Bu proje ile:
+✔️ Modern UI/UX tasarımı
+✔️ Hızlı frontend geliştirme
+✔️ React + TypeScript + Vite entegrasyonu
+✔️ Vercel’a kolay deploy
+✔️ Yerel geliştirme desteği
+gibi faydalar sağlanır.
 
-**Prerequisites:**  Node.js
+#Gereksinimler
 
+-Node.js (≥16)
+n-pm veya yarn
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+#Kurulum
+
+- Depoyu klonla
+git clone https://github.com/sema27/lumina-luxe.git
+
+- Proje dizinine gir
+cd lumina-luxe
+
+- Bağımlılıkları yükle
+npm install
+
+- Geliştirme sunucusunu başlat
+npm run dev
+
+Tarayıcınızda http://localhost:3000 veya belirtilen portta uygulama çalışacaktır.
