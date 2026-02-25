@@ -62,3 +62,6 @@ npm run dev
 http://localhost:3000
 ```
 ile siteyi görebilirsin.
+
+## 📸 Preview
+<img width="1919" height="941" alt="Ekran görüntüsü 2026-02-13 162712" src="https://github.com/user-attachments/assets/2ead5875-32ba-4e7a-973e-c6d6cf5a7193" />
